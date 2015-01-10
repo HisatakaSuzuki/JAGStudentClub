@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour {
 	public GameObject dungeonObject;
 	int maxroomNo;				//現在の階層の部屋数
 
+	//ダンジョンの初期化
 	void dungeonInit(){
 		dungeonObject.transform.position = Vector3.zero;
 		dungeonObject.transform.parent = this.transform;
@@ -18,19 +19,19 @@ public class GameManager : MonoBehaviour {
 		//マップを選択
 		for (int i=0; i<29; i++) {
 			maps[i] = Random.Range(0,50);
-			Debug.Log(maps[i]);
+			//Debug.Log(maps[i]);
 		}
 		currentmap = FileLoader.readTextFileAsString ("Dungeon/maps_small" + maps[floorNo]);
 	}
 
 	//----------ダンジョン関連終わり
 
-	
 
 	void Awake(){
 		//----------ダンジョン関連
 		dungeonInit ();
 		//----------ダンジョン関連終わり
+
 	}
 
 	// Use this for initialization

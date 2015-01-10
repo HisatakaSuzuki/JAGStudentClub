@@ -49,6 +49,9 @@
      <Compile Include="Assets\Scripts\Dungeon.cs" />
      <Compile Include="Assets\Scripts\FileLoader.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
+     <Compile Include="Assets\Scripts\Item\ItemBase.cs" />
+     <Compile Include="Assets\Scripts\Item\ItemPorch.cs" />
+     <Compile Include="Assets\Scripts\Item\Item_meat.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.1/UnityEngine.UI.dll</HintPath>
  </Reference>

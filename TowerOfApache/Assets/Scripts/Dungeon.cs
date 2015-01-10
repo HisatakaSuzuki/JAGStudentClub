@@ -22,6 +22,7 @@ public class Dungeon : MonoBehaviour {
 	void Update () {
 	
 	}
+	
 
 	//ダンジョンを生成する
 	public void creatDungeon(string[,] dungeon, ref int max){
