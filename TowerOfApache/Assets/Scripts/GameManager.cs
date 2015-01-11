@@ -47,5 +47,6 @@ public class GameManager : MonoBehaviour {
 			currentmap = FileLoader.readTextFileAsString ("Dungeon/maps_small" + maps[floorNo]);
 			dungeon.creatDungeon(currentmap, ref maxroomNo);
 		}
+		FlickContoroller.flick ();
 	}
 }

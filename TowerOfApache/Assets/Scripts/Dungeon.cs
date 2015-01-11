@@ -9,8 +9,8 @@ public class Dungeon : MonoBehaviour {
 	SpriteRenderer srender;	//スプライトをあてる用
 
 	void Awake(){
-		obj = new GameObject ("dungeonbase");
-		srender = obj.AddComponent<SpriteRenderer>();
+		obj = Resources.Load("Dungeon/dungeonBase") as GameObject;
+		srender = obj.GetComponent<SpriteRenderer>();
 	}
 
 	// Use this for initialization
@@ -47,7 +47,7 @@ public class Dungeon : MonoBehaviour {
 					}
 					break;
 				}
-				o.transform.parent = this.transform;	//ゲームマネージャの子要素にする
+				o.transform.parent = this.transform;	//ダンジョンの子要素にする
 			}
 		}
 	}
