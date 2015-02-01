@@ -72,7 +72,7 @@ public class FlickContoroller : MonoBehaviour {
 				}
 			}
 
-			//Debug.Log("direction : " + dir);
+			Debug.Log("direction : " + dir);
 		}
 	}
 }
