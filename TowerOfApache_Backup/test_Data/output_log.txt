@@ -1,0 +1,16 @@
+Initialize engine version: 4.5.1f3 (73cd57f80e3e)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 10.1]
+    Renderer: Intel(R) HD Graphics 3000 (ID=0x126)
+    Vendor:   Intel
+    VRAM:     32 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\Home_PC\Documents\UnityProrjects\TowerOfApache\test_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Home_PC\Documents\UnityProrjects\TowerOfApache\test_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Home_PC\Documents\UnityProrjects\TowerOfApache\test_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Home_PC\Documents\UnityProrjects\TowerOfApache\test_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+- Completed reload, in  0.045 seconds
+desktop: 1280x800 60Hz; virtual: 1280x800 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
