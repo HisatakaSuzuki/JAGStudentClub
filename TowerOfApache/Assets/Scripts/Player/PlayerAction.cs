@@ -2,21 +2,20 @@
 using System.Collections;
 
 public class PlayerAction : BaseBehaviourScript {
-	//攻撃関数
-	//攻撃が当たればtrue,当たらなければfalse
+	/// <summary>
+	/// 攻撃を行う. 当たればtrue,外れればfalse
+	/// </summary>
+	/// <param name="d">D.</param>
 	public bool attack(DIRECTION d){
 		//返り値を初期状態でfalseに
 		bool result = false;
 		
-		//移動ベクトルを決定
+		//攻撃ベクトルを決定
 		attackDir = Direction [(int)d];
 		
-		//現在の座標を取得
-		//Vector2 pos = transform.position;
-		
-		//移動方向にstartpos設定
+		//攻撃方向にstartpos設定
 		startpos.localPosition = attackDir * 0.5f;
-		//移動方向にendpos設定
+		//攻撃方向にendpos設定
 		endpos.localPosition = attackDir;
 		//ヒットチェック
 		//trueになれば移動処理.falseなら終了.
@@ -44,8 +43,11 @@ public class PlayerAction : BaseBehaviourScript {
 		return flag;
 	}
 
-	//移動関数
-	//移動できればtrue,できなければfalse
+	/// <summary>
+	/// 移動できればtrue,できなければfalse
+	/// </summary>
+	/// <param name="d">D.</param>
+	/// <param name="len">Length.</param>
 	public bool move(DIRECTION d, int len){
 		//返り値を初期状態でfalseに
 		bool result = false;
@@ -67,7 +69,7 @@ public class PlayerAction : BaseBehaviourScript {
 		//resultがtrueなので移動可能
 		if (result) {
 			transform.position = pos + moveDir;
-			cutternDir = d;
+			currentDir = d;
 		}
 		
 		return result;

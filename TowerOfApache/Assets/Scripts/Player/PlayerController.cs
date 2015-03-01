@@ -1,17 +1,20 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+//プレイヤーを操作するためのメインスクリプト
 public class PlayerController : MonoBehaviour {
 	PlayerStatus status;
 	PlayerAction action;
-	int[,] statusData; 
+	bool actionFlag;
+	Animator animator;
 
 	void Awake(){
+		actionFlag = true;
 		status = new PlayerStatus ();
 		action = GetComponent<PlayerAction>();
-		statusData = FileLoader.readTextAsInt ("Player/exptable");
-		status.level = 0;
-		status.initStatus (statusData [status.level, 1], statusData [status.level, 0], 0.0f, 100, 0, statusData[status.level,2]);
+		status.initStatusData ();
+		status.initStatus ();
+		animator = GetComponent<Animator> ();
 	}
 
 	// Use this for initialization
@@ -21,50 +24,47 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown (KeyCode.L)) {
-			status.exp = statusData[(status.level+1),2];
+		if (actionFlag) {
+			FlickContoroller.flick ();
+			string dir = FlickContoroller.dir;
+			switch(dir){
+			case "": break;
+			case "a": 
+				playerMove(BaseBehaviourScript.DIRECTION.RIGHT);
+				break;
+			case "b":
+				playerMove(BaseBehaviourScript.DIRECTION.UP_RIGHT);
+				break;
+			case "c": 
+				playerMove(BaseBehaviourScript.DIRECTION.UP);
+				break;
+			case "d": 
+				playerMove(BaseBehaviourScript.DIRECTION.UP_LEFT);
+				break;
+			case "e": 
+				playerMove(BaseBehaviourScript.DIRECTION.LEFT);
+				break;
+			case "f": 
+				playerMove(BaseBehaviourScript.DIRECTION.DOWN_LEFT);
+				break;
+			case "g": 
+				playerMove(BaseBehaviourScript.DIRECTION.DOWN);
+				break;
+			case "h": 
+				playerMove(BaseBehaviourScript.DIRECTION.DOWN_RIGHT);
+				break;
+			default: break;
+			}
+			FlickContoroller.dir = "";
 		}
-		if (status.exp >= statusData [(status.level + 1), 2]) {
-			levelup();
-			Debug.Log(status.level + "," + statusData [status.level, 1] + "," + statusData [status.level, 0] + "," + statusData[status.level,2]);
-		}
-
-
-//		if (Input.GetKeyDown (KeyCode.D)) {
-//			action.move(BaseBehaviourScript.DIRECTION.RIGHT,1);
-//		}
-//		if (Input.GetKeyDown (KeyCode.C)) {
-//			action.move(BaseBehaviourScript.DIRECTION.DOWN_RIGHT,1);
-//		}
-//		if (Input.GetKeyDown (KeyCode.E)) {
-//			action.move(BaseBehaviourScript.DIRECTION.UP_RIGHT,1);
-//		}
-//		if (Input.GetKeyDown (KeyCode.A)) {
-//			action.move(BaseBehaviourScript.DIRECTION.LEFT,1);
-//		}
-//		if (Input.GetKeyDown (KeyCode.Z)) {
-//			action.move(BaseBehaviourScript.DIRECTION.DOWN_LEFT,1);
-//		}
-//		if (Input.GetKeyDown (KeyCode.Q)) {
-//			action.move(BaseBehaviourScript.DIRECTION.UP_RIGHT,1);
-//		}
-//		if (Input.GetKeyDown (KeyCode.W)) {
-//			action.move(BaseBehaviourScript.DIRECTION.UP,1);
-//		}
-//		if (Input.GetKeyDown (KeyCode.X)) {
-//			action.move(BaseBehaviourScript.DIRECTION.DOWN,1);
-//		}
-
 	}
 
-	void levelup(){
-		if (status.level < 70) {
-			float percentage = (float)(status.hp / statusData[status.level,1]);
-			status.level++;
-			status.hp = statusData[status.level,1];
-			status.hp = (int)(status.hp * percentage);
-			status.ap = statusData[status.level,0];
-			status.hungry = 100;
+	//プレイヤーの移動時に呼ばれる
+	void playerMove(BaseBehaviourScript.DIRECTION dir){
+		bool flag = action.move(dir,1);
+		if (flag) {
+			animator.SetFloat("DirectionX",action.getDir(action.currentDirection()).x);
+			animator.SetFloat("DirectionY",action.getDir(action.currentDirection()).y);
 		}
 	}
 }

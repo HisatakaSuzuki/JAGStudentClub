@@ -26,59 +26,61 @@ public class BaseBehaviourScript : MonoBehaviour {
 		new Vector2 (1.0f,-1.0f)
 	};
 
-	protected DIRECTION cutternDir;	//現在の向き
+	protected DIRECTION currentDir;	//現在の向き
 
 	protected Vector2 moveDir;		//移動方向	
 	protected Vector2 attackDir;		//攻撃方向
 
 	//ヒットチェック用終始点
-	protected Transform startpos,endpos;
+	public Transform startpos,endpos;
 	
 	//攻撃対象のオブジェクト
-	protected GameObject target;
+	public GameObject target;
 
 	//現在の向きを返す
-	protected DIRECTION currentDirection(){
-		return this.cutternDir;
+	public DIRECTION currentDirection(){
+		return this.currentDir;
 	}
 	
 	//準備した方向を返す
-	protected Vector2 getDir(DIRECTION d){
+	public Vector2 getDir(DIRECTION d){
 		return this.Direction[(int)d];
 	}
-	
+
+	/// <summary>
+	/// 右回りに回る
+	/// </summary>
 	protected void turn(){
-		switch(cutternDir){
+		switch(currentDir){
 		case DIRECTION.UP: 
-			cutternDir = DIRECTION.UP_RIGHT; 
+			currentDir = DIRECTION.UP_RIGHT; 
 			break;
 		case DIRECTION.UP_RIGHT: 
-			cutternDir = DIRECTION.RIGHT; 
+			currentDir = DIRECTION.RIGHT; 
 			break;
 		case DIRECTION.RIGHT: 
-			cutternDir = DIRECTION.DOWN_RIGHT; 
+			currentDir = DIRECTION.DOWN_RIGHT; 
 			break;
 		case DIRECTION.DOWN_RIGHT: 
-			cutternDir = DIRECTION.DOWN; 
+			currentDir = DIRECTION.DOWN; 
 			break;
 		case DIRECTION.DOWN: 
-			cutternDir = DIRECTION.DOWN_LEFT; 
+			currentDir = DIRECTION.DOWN_LEFT; 
 			break;
 		case DIRECTION.DOWN_LEFT: 
-			cutternDir = DIRECTION.LEFT; 
+			currentDir = DIRECTION.LEFT; 
 			break;
 		case DIRECTION.LEFT: 
-			cutternDir = DIRECTION.UP_LEFT; 
+			currentDir = DIRECTION.UP_LEFT; 
 			break;
 		case DIRECTION.UP_LEFT: 
-			cutternDir = DIRECTION.UP; 
+			currentDir = DIRECTION.UP; 
 			break;
 		}
 	}
 
 	// Use this for initialization
 	void Start () {
-		cutternDir = DIRECTION.UP;
+		currentDir = DIRECTION.UP;
 	}
-
 }

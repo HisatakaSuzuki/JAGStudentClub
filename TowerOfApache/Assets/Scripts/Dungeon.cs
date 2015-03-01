@@ -24,7 +24,11 @@ public class Dungeon : MonoBehaviour {
 	}
 	
 
-	//ダンジョンを生成する
+	/// <summary>
+	/// ダンジョンを生成する
+	/// </summary>
+	/// <param name="dungeon">Dungeon.</param>
+	/// <param name="max">Max.</param>
 	public void creatDungeon(string[,] dungeon, ref int max){
 		for(int i=0;i<dungeon.GetLength(0);i++){
 			for(int j=0;j<dungeon.GetLength(1);j++){
@@ -55,7 +59,9 @@ public class Dungeon : MonoBehaviour {
 		}
 	}
 
-
+	/// <summary>
+	/// ダンジョンを破棄する
+	/// </summary>
 	public void destroyDungeon(){
 		//ダンジョンの破棄
 		foreach (Transform child in transform) {

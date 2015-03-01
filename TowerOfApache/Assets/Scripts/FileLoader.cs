@@ -6,6 +6,11 @@ public class FileLoader : MonoBehaviour {
 	static TextAsset file;
 	static StringReader reader;
 
+	/// <summary>
+	/// 指定ファイルを読み,int型2次配列として返す
+	/// </summary>
+	/// <returns>The text as int.</returns>
+	/// <param name="path">Path.</param>
 	public static int[,] readTextAsInt(string path){
 		file = Resources.Load (@path) as TextAsset;
 		reader = new StringReader(file.text);
@@ -35,6 +40,11 @@ public class FileLoader : MonoBehaviour {
 		return result;
 	}
 
+	/// <summary>
+	/// 指定ファイルを読み,float型2次配列として返す
+	/// </summary>
+	/// <returns>The text as float.</returns>
+	/// <param name="path">Path.</param>
 	public static float[,] readTextAsFloat(string path){
 		file = Resources.Load (@path) as TextAsset;
 		reader = new StringReader(file.text);
@@ -64,6 +74,11 @@ public class FileLoader : MonoBehaviour {
 		return result;
 	}
 
+	/// <summary>
+	/// 指定ファイルを読み,double型2次配列として返す
+	/// </summary>
+	/// <returns>The text as double.</returns>
+	/// <param name="path">Path.</param>
 	public static double[,] readTextAsDouble(string path){
 		file = Resources.Load (@path) as TextAsset;
 		reader = new StringReader(file.text);
@@ -93,6 +108,11 @@ public class FileLoader : MonoBehaviour {
 		return result;
 	}
 
+	/// <summary>
+	/// 指定ファイルを読み,string型2次配列として返す
+	/// </summary>
+	/// <returns>The text file as string.</returns>
+	/// <param name="path">Path.</param>
 	public static string[,] readTextFileAsString(string path){
 		file = Resources.Load (@path) as TextAsset;
 		reader = new StringReader(file.text);

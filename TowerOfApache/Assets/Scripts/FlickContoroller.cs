@@ -4,7 +4,7 @@ using System.Collections;
 public class FlickContoroller : MonoBehaviour {
 	static Vector3 startPos;    //始点
 	static Vector3 endPos;      //終点
-	public static string dir;
+	public static string dir = "";
 	
 	public static void flick(){
 		if(Input.GetKeyDown (KeyCode.Mouse0))    //マウス左クリック時に始点座標を代入
@@ -71,8 +71,6 @@ public class FlickContoroller : MonoBehaviour {
 					dir = "h";
 				}
 			}
-
-			Debug.Log("direction : " + dir);
 		}
 	}
 }

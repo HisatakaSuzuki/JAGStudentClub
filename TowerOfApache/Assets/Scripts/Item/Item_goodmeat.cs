@@ -1,22 +1,22 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Item_meat : ItemBase {
+public class Item_goodmeat : ItemBase {
 	public override void init ()
 	{
 		base.init ();
-		name = "お肉";
+		name = "いいお肉";
 		shikibetu = 1;
 		limit = 1;
 	}
-
+	
 	public override void use ()
 	{
 		base.use ();
-		Debug.Log ("満腹度を50%回復");
+		Debug.Log ("満腹度を全回復");
 		limit--;
 	}
-
+	
 	public override void dispose (ref ItemBase itself)
 	{
 		base.dispose (ref itself);
