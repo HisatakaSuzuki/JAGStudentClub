@@ -53,6 +53,7 @@
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\Item\ItemBase.cs" />
      <Compile Include="Assets\Scripts\Item\ItemPorch.cs" />
+     <Compile Include="Assets\Scripts\Item\ItemSetter.cs" />
      <Compile Include="Assets\Scripts\Item\Item_goodmeat.cs" />
      <Compile Include="Assets\Scripts\Item\Item_goodportion.cs" />
      <Compile Include="Assets\Scripts\Item\Item_kakonto.cs" />

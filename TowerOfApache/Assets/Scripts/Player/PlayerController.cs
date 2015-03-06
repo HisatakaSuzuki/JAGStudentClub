@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour {
 	PlayerAction action;
 	bool actionFlag;
 	Animator animator;
+	ItemPorch itemporch;
 
 	void Awake(){
 		actionFlag = true;
@@ -15,6 +16,7 @@ public class PlayerController : MonoBehaviour {
 		status.initStatusData ();
 		status.initStatus ();
 		animator = GetComponent<Animator> ();
+		itemporch = GetComponent<ItemPorch> ();
 	}
 
 	// Use this for initialization
