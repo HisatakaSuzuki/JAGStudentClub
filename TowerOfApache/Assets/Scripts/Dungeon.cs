@@ -36,22 +36,22 @@ public class Dungeon : MonoBehaviour {
 				switch(dungeon[i,j]){
 				case "*": //通路なら
 					srender.sprite = floor[Random.Range(0,floor.Length)];	//床のスプライトを充てる
+					srender.sortingLayerName = "floor";		//描画順
 					o = Instantiate(obj,new Vector3(j,-i,0), Quaternion.identity) as GameObject;	//ゲーム空間に配置
-					srender.sortingLayerID = 1;
 					break;
 				case "0": //壁なら
 					srender.sprite = wall[Random.Range(0,wall.Length)];	//壁のスプライトを充てる
+					srender.sortingLayerName = "active";	//描画順
 					o = Instantiate(obj,new Vector3(j,-i,0), Quaternion.identity) as GameObject;	//ゲーム空間に配置
-					srender.sortingLayerID = 2;
 					break;
 				default: //部屋なら
 					srender.sprite = floor[Random.Range(0,floor.Length)];	//床のスプライトを充てる
+					srender.sortingLayerName = "floor";		//描画順
 					o = Instantiate(obj,new Vector3(j,-i,0), Quaternion.identity) as GameObject;	//ゲーム空間に配置
 					//数値が大きければmaxに代入
 					if(max < int.Parse(dungeon[i,j])){
 						max = int.Parse(dungeon[i,j]);
 					}
-					srender.sortingLayerID = 1;
 					break;
 				}
 				o.transform.parent = this.transform;	//ダンジョンの子要素にする
